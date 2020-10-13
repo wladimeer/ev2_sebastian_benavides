@@ -79,8 +79,40 @@ a:hover {
 
 .content__button {
     width: 100%;
+    border: none;
+    outline: none;
+    padding: 8px;
+    transition: 2s;
+    color: #FFFFFF;
+    font-weight: bold;
+    border-radius: 3px;
+    background: #000000;
+}
+
+.content__button:hover {
+    cursor: pointer;
+    background: #2B2B2A;
 }
 
 .content__result {
     margin: 10px 0;
+}
+
+.content__information {
+    width: 90%;
+    padding: 0 8px;
+    border-radius: 3px;
+    box-sizing: border-box;
+    border: 2px solid #000000;
+}
+
+.content__result {
+    width: 90%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.content__table {
+    width: 100%;
 }
