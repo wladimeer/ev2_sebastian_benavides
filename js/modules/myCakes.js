@@ -23,32 +23,46 @@ export default {
             </table>
         </div>
     `),
+    factura: {
+        cliente: "INFORMATICA INACAP",
+        domicilio: "AV. SAN MIGUEL 445",
+        ciudad: "Talca",
+        telefono: "223344",
+        detalle: [
+            {codigo: 1, cantidad: 3, descripcion: 'PASTEL MIL HOJAS', precioUnitario: 10000},
+            {codigo: 2, cantidad: 4, descripcion: 'GALLETAS FINAS', precioUnitario: 8000},
+            {codigo: 3, cantidad: 2, descripcion: 'BERLIN', precioUnitario: 500},
+            {codigo: 4, cantidad: 1, descripcion: 'PIE DE LIMON', precioUnitario: 10000},
+            {codigo: 5, cantidad: 5, descripcion: 'PASTEL MANJAR', precioUnitario: 12000},
+            {codigo: 6, cantidad: 3, descripcion: 'PASTEL CREMA', precioUnitario: 13000}
+        ]
+    },
     loadFactura: function() {
         var information = document.getElementById("information");
         var array = document.getElementById("array");
         var table = document.getElementById("table");
         var factura = window.factura;
         var result = 0;
-
+        
         information.innerHTML = (
-            "CLIENTE: " + factura.cliente + "<br>" +
-            "DOMICILIO: " + factura.domicilio + "<br>" +
-            "CIUDAD: " + factura.ciudad + "<br>" +
-            "TELEFONO: " + factura.telefono + "<br>"
+            "CLIENTE: " + this.factura.cliente + "<br>" +
+            "DOMICILIO: " + this.factura.domicilio + "<br>" +
+            "CIUDAD: " + this.factura.ciudad + "<br>" +
+            "TELEFONO: " + this.factura.telefono + "<br>"
         );
 
         array.innerHTML = "";
         table.setAttribute("border", 1);
         table.style.visibility = "visible";
 
-        factura.detalle.forEach(item => {
+        this.factura.detalle.forEach(item => {
             var code = document.createElement("td");
             var quantity = document.createElement("td");
             var description = document.createElement("td");
             var price = document.createElement("td");
             var total = document.createElement("td");
             var tr = document.createElement("tr");
-
+            
             code.innerHTML = item.codigo;
             quantity.innerHTML = item.cantidad;
             description.innerHTML = item.descripcion;

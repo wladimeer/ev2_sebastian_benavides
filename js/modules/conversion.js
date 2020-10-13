@@ -43,7 +43,7 @@ export default {
         var message = "";
         var error = "";
         var count = 0;
-
+        
         type.forEach(item => {
             if(!item.checked) {
                 count++;
@@ -55,20 +55,21 @@ export default {
                 if(coin.value == "" || coin.value < 1) {
                     error = "Verifica los Pesos Ingresados";
                 }
-
+                
                 if(count == type.length) {
                     error = "Selecciona una Conversión";
                 } else if(item.checked) {
                     if(item.id == "dolar") {
-                        var total = (coin.value / 628.68);
+                        var total = (coin.value / valores.dolar);
                         message = "$" + coin.value + " Pesos Chilenos a Dolares: $" + total.toFixed(0);
                     } else if(item.id == "uf") {
-                        var total = (coin.value / 26648.67);
+                        var total = (coin.value / valores.uf);
                         message = "$" + coin.value + " Pesos Chilenos a UF: " + total.toFixed(0);
                     } else {
-                        var total = (coin.value / 740.67);
+                        var total = (coin.value / valores.euro);
                         message = "$" + coin.value + " Pesos Chilenos a Euros: €" + total.toFixed(0);
                     }
+                    item.checked = false;
                 }
             }
         });
